@@ -1,39 +1,82 @@
-// Sticky nav shadow on scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.style.boxShadow = window.scrollY > 10
-    ? '0 2px 20px rgba(0,0,0,0.4)'
-    : 'none';
+// Typing animation settings
+const TEXT_TO_TYPE = "Hi, my name is Kyle Khai Lai";
+const TYPING_SPEED = 100;
+const TYPING_DELAY = 500;
+
+// Elements
+const navigation = document.getElementById('navigation');
+const typingText = document.getElementById('typingText');
+
+// Reset to home immediately on any page load
+window.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+
+    typingText.textContent = '';
+    navigation.classList.remove('show');
+    document.body.style.overflowY = 'hidden';
 });
 
-// Fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+// Additional reset on full page load
+window.addEventListener('load', () => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+
+    typingText.textContent = '';
+    navigation.classList.remove('show');
+    document.body.style.overflowY = 'hidden';
+
+    setTimeout(() => {
+        startTypingAnimation();
+    }, TYPING_DELAY);
+});
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0, 0);
     }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.timeline-item, .project-card, .skill-group, .contact-card, .about-grid')
-  .forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
-  });
-
-// Active nav link highlight
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const top = section.offsetTop - 80;
-    if (window.scrollY >= top) current = section.id;
-  });
-  navLinks.forEach(link => {
-    link.style.color = link.getAttribute('href') === `#${current}`
-      ? 'var(--accent2)'
-      : '';
-  });
 });
+
+function startTypingAnimation() {
+    let i = 0;
+
+    function typeWriter() {
+        if (i < TEXT_TO_TYPE.length) {
+            typingText.textContent += TEXT_TO_TYPE.charAt(i);
+            i++;
+            setTimeout(typeWriter, TYPING_SPEED);
+        } else {
+            setTimeout(() => {
+                navigation.classList.add('show');
+                document.body.style.overflowY = 'auto';
+                addNavigationHandlers();
+            }, 50);
+        }
+    }
+
+    typeWriter();
+}
+
+function addNavigationHandlers() {
+    const navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = item.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
