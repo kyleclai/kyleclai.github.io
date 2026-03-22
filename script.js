@@ -67,15 +67,12 @@ function addNavigationHandlers() {
 
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
+            const href = item.getAttribute('href');
+            if (!href.startsWith('#')) return; // let normal page navigation happen
             e.preventDefault();
-            const targetId = item.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
+            const targetSection = document.getElementById(href.substring(1));
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
