@@ -67,6 +67,10 @@ body {
     padding: 100px 50px 50px;
 }
 
+#blog.section {
+    align-items: flex-start;
+}
+
 #home {
     position: relative;
 }
