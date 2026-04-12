@@ -37,6 +37,42 @@
                     -->
 
                     <div class="blog-item">
+                        <span class="blog-date">April 12, 2026</span>
+                        <h3 class="blog-title">Passed the Azure AI-900 — Here's What Actually Helped</h3>
+                        <p class="blog-excerpt">
+                            Scored 823/1000 on my first attempt after 3 days of prep. Here's an honest breakdown of what worked, what surprised me, and whether it's worth it.
+                        </p>
+                        <div class="blog-body">
+                            <p>I'm a CS senior with 3 years of undergrad research in Data and AI, so I felt comfortable with the machine learning and deep learning fundamentals going in. But this exam isn't really about depth — it's about knowing Microsoft's specific framing of AI concepts and their service ecosystem. That part took real work, even for me.</p>
+
+                            <p>I took this on April 12, 2026, partly because I have upcoming technical interviews at Azure-heavy companies and wanted something concrete on paper. Also the cert expires June 2026, so I figured if I was going to do it, now was the time. Scored 823/1000 — passing is 700, so I'm happy with that.</p>
+
+                            <p><strong>How I studied (3 days, ~2–3 hrs/day):</strong></p>
+                            <ul class="blog-list-items">
+                                <li><strong><a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/?practice-assessment-type=certification#certification-practice-for-the-exam" target="_blank" rel="noopener" class="resume-link">Microsoft Learn practice assessments ↗</a></strong> — did these about 4 times. First try I got 70%, then kept climbing to 85%+. Good starting point. I'd also read through the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-900" target="_blank" rel="noopener" class="resume-link">official study guide ↗</a> since it breaks the exam down by topic percentage, which helped me know where to spend more time.</li>
+                                <li><strong><a href="https://insidethemicrosoftcloud.com/ai900quiz/" target="_blank" rel="noopener" class="resume-link">InsideTheMicrosoftCloud AI-900 quiz ↗</a></strong> — a bank of 150 questions. I only did about a third of them, mostly just to feel out different angles on the same topics.</li>
+                                <li><strong>John Savill's AI-900 cram videos</strong> (<a href="https://www.youtube.com/watch?v=bTkUTkXrqOQ" target="_blank" rel="noopener" class="resume-link">non-generative AI ↗</a> and <a href="https://www.youtube.com/watch?v=Ch6KE7KxHGM" target="_blank" rel="noopener" class="resume-link">generative AI ↗</a>) — honestly the most useful thing I did. The reps from practice exams were great, but John Savill's videos gave me the vocabulary structure to actually internalize what I was memorizing. Highly recommend both parts.</li>
+                                <li><strong><a href="https://tutorialsdojo.com/ai-900-microsoft-azure-ai-fundamentals-sample-exam-questions/" target="_blank" rel="noopener" class="resume-link">TutorialDojo sample questions page ↗</a></strong> — this isn't their paid sampler, it's a free page but with tons of hyperlinked explanations that go deeper on each concept. Really useful for the topics I kept getting wrong. Their free sampler practice exam is a separate thing — and that one humbled me. I got 75% on it, which is technically passing, but it exposed how different the actual format can be: drag-and-drop, fill-in-the-blank, ordering questions. None of the other resources prepare you for those. Use it as a reality check late in your prep.</li>
+                                <li><strong>Supplemental reads:</strong> <a href="https://learn.microsoft.com/en-us/azure/machine-learning/algorithm-cheat-sheet?view=azureml-api-1" target="_blank" rel="noopener" class="resume-link">ML algorithm cheat sheet ↗</a> — a nice visual for ML model selection — and the <a href="https://learn.microsoft.com/en-us/azure/machine-learning/concept-automated-ml?view=azureml-api-2" target="_blank" rel="noopener" class="resume-link">Azure Automated ML overview ↗</a> since that came up more than I expected.</li>
+                                <li><strong><a href="https://www.reddit.com/r/AzureCertification/comments/1evu979/which_resources_to_use_to_study_for_ai900/" target="_blank" rel="noopener" class="resume-link">r/AzureCertification resource thread ↗</a></strong> — good for a sanity check on what other people found useful.</li>
+                                <li><strong>Claude as a study partner</strong> — this was more helpful than I expected. Whenever a practice answer didn't match what I thought, I'd just ask Claude to break down why. It's way faster than digging through docs and really good for understanding the nuances that the exam actually tests on.</li>
+                            </ul>
+
+                            <p><strong>What I actually had to grind on:</strong></p>
+                            <ul class="blog-list-items">
+                                <li><strong>Responsible AI principles</strong> — the six principles (Fairness, Reliability & Safety, Privacy & Security, Inclusiveness, Transparency, Accountability) are distinct but the definitions blur together fast. The exam likes to give you scenarios and ask which principle applies, so you need to really internalize what each one actually means, not just the name.</li>
+                                <li><strong>Key-phrase extraction vs. entity recognition</strong> — both are under Azure AI Language, both deal with pulling meaning from text, but they're different things. Key-phrase extraction finds the main topics/ideas in a piece of text. Entity recognition identifies and categorizes specific named things (people, places, dates, organizations). Easy to confuse when a question is phrased vaguely.</li>
+                                <li><strong>The Azure service landscape</strong> — this was probably the biggest thing. There are a lot of services and the exam wants you to know which one to use when. Quick reference for myself: <em>Azure Machine Learning</em> is the full ML platform (training, deploying models, automated ML, designer for no-code pipelines). <em>Azure AI Services</em> (formerly Cognitive Services) is the suite of pre-built APIs — vision, speech, language, decision. <em>Azure AI Language</em> specifically handles NLP tasks. <em>Azure Bot Service</em> is for building conversational bots. <em>Azure AI Search</em> handles intelligent search including vector/semantic search. Knowing this map matters.</li>
+                                <li><strong>Generative AI tool questions</strong> — particularly Azure OpenAI Service (GPT models, DALL-E, embeddings hosted on Azure), prompt flow (a tool for building and evaluating LLM-based workflows), and how content filtering and responsible AI guardrails work within Azure OpenAI. These felt the most "new" since they're recent additions to the ecosystem.</li>
+                            </ul>
+
+                            <p><strong>On the exam format:</strong> The bigger surprise wasn't the content — it was the question types. After doing mostly multiple-choice in practice, the drag-and-drop and fill-in-the-blank questions on the real exam felt different. TutorialDojo's sampler is the best simulation of that. Don't skip it.</p>
+
+                            <p><strong>Looking ahead:</strong> The cert expires June 2026, so this one has a short shelf life. But the real value for me was building familiarity with how Azure structures its AI services — that's useful way beyond the exam. Long-term I want to actually work with these tools, not just know what they're called. Next step is probably the updated version of this cert or continuing up the Azure AI path.</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-item">
                         <span class="blog-date">March 21, 2026</span>
                         <h3 class="blog-title">On Mentorship: Stop Waiting on One Person</h3>
                         <p class="blog-excerpt">
